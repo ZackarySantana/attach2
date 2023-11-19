@@ -20,7 +20,8 @@
 	<footer class="px-5 sm:px-10 flex justify-center items-center py-8">
 		<a href="https://github.com/ZackarySantana/Attach2" target="_blank">
 			<p class="text-sm">
-				Putting the power of connecting in to the hands of the user. <br />
+				Putting the power of connecting in to the hands of the user.
+				<br />
 				Theme: <code>Light Fire</code>
 			</p>
 			<h3>
