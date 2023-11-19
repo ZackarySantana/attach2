@@ -1,3 +1,82 @@
+/** @returns {import('$lib/resume').Resume} */
+export function getResume() {
+    return {
+        personal: {
+            first_name: "Zackary",
+            last_name: "Santana",
+            email: "zsant014@fiu.edu",
+        },
+        socials: {
+            website: "https://zackaryjamessantana.com",
+            github: "https://github.com/ZackarySantana",
+            linkedin: "https://www.linkedin.com/in/zackary-santana",
+            other: {
+                Dev: "Twi",
+            },
+        },
+        work_experience: [
+            {
+                company: "Company",
+                position: "Position",
+                start_date: "2021-01-01",
+                end_date: "2022-01-01",
+                description: ["Company Description"],
+                website: "https://www.mongodb.com",
+                location: "New York, NY",
+            },
+        ],
+        education: [
+            {
+                school: "School",
+                major: "Major",
+                degree: "Degree",
+                start_date: "2021-01-01",
+                end_date: "2022-01-01",
+                website: "https://www.fiu.edu/",
+                location: "New York, NY",
+            },
+        ],
+        certificates: [
+            {
+                name: "Certificate",
+                issuer: "Issuer",
+                issue_date: "2021-05-05",
+                description: ["Cert desc"],
+                website: "https://google.com",
+            },
+        ],
+        projects: [
+            {
+                name: "Project",
+                description: ["Project desc"],
+                type: "Type",
+                technologies: ["Go", "TypeScript"],
+                website: "https://google.com",
+                github: "https://github.com/zackarysantana/howsit",
+            },
+        ],
+        games: [
+            {
+                name: "Game",
+                description: ["Game desc"],
+                technologies: ["Godot", "Unity"],
+                website: "https://google.com",
+                github: "https://github.com/zackarysantana/rpg",
+            },
+        ],
+        apps: [
+            {
+                name: "App",
+                description: ["App desc"],
+                playstore: "Android",
+                technologies: ["React", "Svelte"],
+                website: "https://google.com",
+                github: "https://github.com/zackarysantana/rpg",
+            },
+        ],
+    };
+}
+
 /**
  * @typedef Resume
  * @type {object}
@@ -116,5 +195,3 @@
  * @property {string=} linkedin - Your LinkedIn username.
  * @property {object=} other - Other social links.
  */
-
-module.exports = {};
