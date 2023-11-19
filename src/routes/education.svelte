@@ -1,10 +1,10 @@
 <script>
-	import Dropdown from '../lib/components/dropdown.svelte';
+    import Dropdown from "$components/dropdown.svelte";
 
-	/** @type {import('$lib/resume.js').Resume} */
-	export let resume;
+    /** @type {import('$lib/resume.js').Resume} */
+    export let resume;
 </script>
 
 <Dropdown title="🧠 Education">
-	<p>Education</p>
+    <p>Education</p>
 </Dropdown>

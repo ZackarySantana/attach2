@@ -5,5 +5,5 @@ export const prerender = true;
  * @returns {Promise<import('$lib/resume.js').Resume>}
  */
 export async function load({ fetch }) {
-	return (await fetch('/api')).json();
+    return (await fetch("/api")).json();
 }
