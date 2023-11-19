@@ -9,6 +9,7 @@
     export let icon;
 
     $: filteredDescription = (description ?? []).filter((i) => i !== "");
+    $: multilineSubtitle = subtitle.length > 1;
 </script>
 
 <div
@@ -35,7 +36,7 @@
                 {subtitle}
             </p>
         {/if}
-        {#if subtitle.length > 1}
+        {#if multilineSubtitle}
             <div class="relative pl-3 text-sm leading-4 text-gray-800">
                 <div
                     class="bg-accent absolute left-[2px] top-[11%] h-[80%] w-[2px] rounded-sm"
@@ -46,7 +47,7 @@
             </div>
         {/if}
         {#if filteredDescription.length > 0}
-            <ul class="list-disc text-xs">
+            <ul class={`list-disc text-xs ${!multilineSubtitle ? "mt-4" : ""}`}>
                 {#each description ?? [] as i}
                     <li class="mt-1">{i}</li>
                 {/each}
