@@ -3,7 +3,6 @@
  * @returns {string} Formatted date
  */
 export function formatDate(date) {
-    console.log(date);
     if (date === undefined) {
         return "Current";
     }
