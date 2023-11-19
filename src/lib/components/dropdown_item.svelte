@@ -16,13 +16,15 @@
     <div
         class="from-accent to-accent-2 flex h-[50px] w-[50px] min-w-[50px] items-center justify-center self-start rounded-lg bg-gradient-to-b"
     >
-        <div class="p-2">
-            <img
-                class="h-full w-full"
-                src={icon}
-                alt="Icon"
-            />
-        </div>
+        {#if icon !== undefined}
+            <div class="p-2">
+                <img
+                    class="h-full w-full"
+                    src={icon}
+                    alt="Icon"
+                />
+            </div>
+        {/if}
     </div>
     <div class="w-full overflow-hidden pl-4 leading-5">
         <h3 class="whitespace-nowrap font-bold">{title}</h3>
