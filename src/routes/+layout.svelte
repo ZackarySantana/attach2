@@ -33,13 +33,13 @@
                 Theme:
                 <code>Light Fire</code>
             </p>
-            <h3>
+            <p>
                 Click here to make your own <span
                     class="font-mono text-attach-accent"
                 >
                     |attach|
                 </span>
-            </h3>
+            </p>
         </a>
     </footer>
 </div>

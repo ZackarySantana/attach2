@@ -8,8 +8,10 @@ const config = {
     theme: {
         extend: {
             colors: {
-                "attach-accent": "#4ea8ed",
+                "light-attach-accent": "#4ea8ed",
+                "dark-attach-accent": "#446f9a",
                 "light-fire": {
+                    "attach-accent": "#446f9a",
                     "text-primary": "#000000",
                     "text-secondary": "#ffffff",
                     "text-chip": "#ffffff",
@@ -29,6 +31,9 @@ const config = {
         plugin(function ({ addUtilities, theme }) {
             themes.forEach((t) => {
                 addUtilities({
+                    [`.${t} .text-attach-accent`]: {
+                        color: theme(`colors.${t}.attach-accent`),
+                    },
                     [`.${t} .text-primary`]: {
                         color: theme(`colors.${t}.text-primary`),
                     },
