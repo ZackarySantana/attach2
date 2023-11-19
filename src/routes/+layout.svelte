@@ -3,6 +3,10 @@
 </script>
 
 <div>
+	<header>
+		<h1>My app</h1>
+	</header>
+
 	<main>
 		<slot />
 	</main>

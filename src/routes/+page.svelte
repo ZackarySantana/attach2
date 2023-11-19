@@ -25,6 +25,6 @@
 
 	<h2 class="text-xl">
 		try editing <strong>src/routes/+page.svelte</strong>
-		{data.name}
+		{data.personal.first_name}
 	</h2>
 </section>

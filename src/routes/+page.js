@@ -1,8 +1,9 @@
 export const prerender = true;
 
-export async function load() {
-	const test = {
-		name: 'Zackary'
-	};
-	return test;
+/**
+ * @param {import('./$types.js').PageLoadEvent} params
+ * @returns {Promise<import('$lib/resume.js').Resume>}
+ */
+export async function load({ fetch }) {
+	return (await fetch('/api')).json();
 }
