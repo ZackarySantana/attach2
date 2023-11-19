@@ -7,6 +7,8 @@
     export let description;
     /** @type {string=} */
     export let icon;
+
+    $: filteredDescription = (description ?? []).filter((i) => i !== "");
 </script>
 
 <div
@@ -28,12 +30,12 @@
     </div>
     <div class="w-full overflow-hidden pl-4 leading-5">
         <h3 class="whitespace-nowrap font-bold">{title}</h3>
-        {#if subtitle.length === 0}
+        {#if subtitle.length === 1}
             <p class="whitespace-nowrap text-sm font-medium text-gray-800">
                 {subtitle}
             </p>
         {/if}
-        {#if subtitle.length > 0}
+        {#if subtitle.length > 1}
             <div class="relative pl-3 text-sm leading-4 text-gray-800">
                 <div
                     class="bg-accent absolute left-[2px] top-[11%] h-[80%] w-[2px] rounded-sm"
@@ -43,10 +45,12 @@
                 {/each}
             </div>
         {/if}
-        <ul class="list-disc text-xs">
-            {#each description ?? [] as i}
-                <li class="mt-1">{i}</li>
-            {/each}
-        </ul>
+        {#if filteredDescription.length > 0}
+            <ul class="list-disc text-xs">
+                {#each description ?? [] as i}
+                    <li class="mt-1">{i}</li>
+                {/each}
+            </ul>
+        {/if}
     </div>
 </div>
