@@ -1,3 +1,4 @@
+import { format } from "prettier";
 import { formatDate } from "./utils";
 
 /**
@@ -16,7 +17,26 @@ import { formatDate } from "./utils";
  * @returns {string}
  */
 function subTitleFromDates(start_date, end_date) {
-    return `${formatDate(start_date)} - ${formatDate(end_date)}`;
+    let subtitle = `${formatDate(start_date)} - ${formatDate(end_date)}`;
+    if (end_date === undefined) {
+        end_date = new Date().toISOString().split("T")[0];
+    }
+    const monthsBetween =
+        Math.round(
+            (new Date(end_date).getTime() - new Date(start_date).getTime()) /
+                1000 /
+                60 /
+                60 /
+                24 /
+                30,
+        ) + 1;
+    const yearsBetween = Math.floor(monthsBetween / 12);
+    if (yearsBetween > 0) {
+        return (
+            subtitle + ` (${yearsBetween} years, ${monthsBetween % 12} months)`
+        );
+    }
+    return subtitle + ` (${monthsBetween} months)`;
 }
 
 /**
