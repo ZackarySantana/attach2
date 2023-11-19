@@ -65,6 +65,20 @@
  */
 
 /**
+ * @typedef Apps
+ * @type {object}
+ * @property {string} name - The name of the app.
+ * @property {string[]} description - A description of the app.
+ * @property {string} playstore - The app's playstore.
+ * @property {string[]=} technologies - The technologies you used.
+ * @property {string=} website - The app's website.
+ * @property {string=} github - The project's github.
+ * @property {string=} logo - The app's logo.
+ * @property {boolean} [get_logo_from_website=true] - Attempt to get the app's logo from their website if a logo is not given.
+ * @property {boolean} [no_logo=false] - Do not include the logo.
+ */
+
+/**
  * @typedef Education
  * @type {object}
  * @property {string} school - The school you attended.

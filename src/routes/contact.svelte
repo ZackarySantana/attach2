@@ -5,6 +5,6 @@
 	export let resume;
 </script>
 
-<Dropdown>
+<Dropdown title="📧 Contact Me">
 	<p>Contact me</p>
 </Dropdown>

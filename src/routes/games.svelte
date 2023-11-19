@@ -5,6 +5,6 @@
 	export let resume;
 </script>
 
-<Dropdown>
+<Dropdown title="🎮 Games">
 	<p>Games</p>
 </Dropdown>

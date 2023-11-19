@@ -5,6 +5,6 @@
 	export let resume;
 </script>
 
-<Dropdown title="🧠 Education">
-	<p>Education</p>
+<Dropdown title="📱 Mobile Apps">
+	<p>Mobile apps</p>
 </Dropdown>

@@ -5,6 +5,6 @@
 	export let resume;
 </script>
 
-<Dropdown>
+<Dropdown title="💼 Work Experience">
 	<p>Work experience</p>
 </Dropdown>

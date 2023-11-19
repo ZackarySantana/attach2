@@ -5,7 +5,6 @@ const themes = ['light-fire'];
 /** @type {import('tailwindcss').Config}*/
 const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
-
 	theme: {
 		extend: {
 			colors: {
@@ -18,12 +17,11 @@ const config = {
 					'bg-primary': '#f3f4f6',
 					'bg-secondary': '#d04952',
 					'bg-chip': '#d04952',
-					accent: '#f3f4f6'
+					accent: '#d04952'
 				}
 			}
 		}
 	},
-
 	plugins: [
 		plugin(function ({ addUtilities, theme }) {
 			themes.forEach((t) => {
@@ -56,7 +54,7 @@ const config = {
 					[`.${t} .bg-chip`]: {
 						backgroundColor: theme(`colors.${t}.bg-chip`)
 					},
-					[`.${t} .accent`]: {
+					[`.${t} .fill-accent`]: {
 						fill: theme(`colors.${t}.accent`)
 					}
 				});

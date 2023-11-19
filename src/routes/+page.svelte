@@ -7,6 +7,7 @@
 	import Education from './education.svelte';
 	import Games from './games.svelte';
 	import Contact from './contact.svelte';
+	import Apps from './apps.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -22,4 +23,5 @@
 <Projects resume={data} />
 <Education resume={data} />
 <Games resume={data} />
+<Apps resume={data} />
 <Contact resume={data} />

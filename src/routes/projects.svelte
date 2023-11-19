@@ -5,6 +5,6 @@
 	export let resume;
 </script>
 
-<Dropdown>
+<Dropdown title="🕸️ Projects">
 	<p>Projects</p>
 </Dropdown>
