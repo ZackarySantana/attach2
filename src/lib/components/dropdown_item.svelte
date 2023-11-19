@@ -35,7 +35,9 @@
     <div class="w-full overflow-hidden pl-4 leading-5">
         <h3 class="whitespace-nowrap font-bold">{title}</h3>
         {#if subtitle.length === 1}
-            <p class="whitespace-nowrap text-sm font-medium text-gray-800">
+            <p
+                class="whitespace-nowrap text-sm font-medium text-gray-800 fade-line"
+            >
                 {subtitle}
             </p>
         {/if}
