@@ -5,6 +5,8 @@ const iconTypes = [
     'rel="apple-touch-icon"',
     'rel="msapplication-TileImage"',
     'rel="icon"',
+    'rel="shortcut icon"',
+    'rel="icon shortcut"',
 ];
 
 /**
@@ -55,9 +57,18 @@ async function processLogos(info) {
                 .then((res) => res.text())
                 .then((site) => {
                     for (const type of iconTypes) {
-                        const href = getHref(site, type);
+                        let href = getHref(site, type);
                         if (href) {
-                            item.logo = item.website + href;
+                            if (
+                                !href.startsWith("https://") &&
+                                !href.startsWith("http://")
+                            ) {
+                                if (!href.startsWith("/")) {
+                                    href = "/" + href;
+                                }
+                                href = item.website + href;
+                            }
+                            item.logo = href;
                             return;
                         }
                     }
