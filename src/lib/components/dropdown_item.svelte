@@ -25,7 +25,7 @@
         {#if icon !== undefined}
             <div class="p-2">
                 <img
-                    class="h-[32px] h-[32px]"
+                    class="h-[32px] w-[32px]"
                     src={icon}
                     alt="Icon"
                 />
