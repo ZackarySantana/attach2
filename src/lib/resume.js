@@ -15,6 +15,8 @@
  * @type {object}
  * @property {string} first_name - Your first name.
  * @property {string} last_name - Your last name.
+ * @property {string=} picture - A link to your picture.
+ * @property {string=} banner - A link to your banner.
  * @property {string=} email - Your email address.
  * @property {string=} phone - Your phone number.
  */
