@@ -10,10 +10,13 @@
 
     $: filteredDescription = (description ?? []).filter((i) => i !== "");
     $: multilineSubtitle = subtitle.length > 1;
+    $: small = subtitle.length < 2 && filteredDescription.length === 0;
 </script>
 
 <div
-    class="w-item relative flex h-fit items-center rounded-lg py-5 pr-8 leading-5"
+    class={`w-item relative flex h-fit items-center rounded-lg pr-8 leading-5 ${
+        small ? "py-2" : "py-5"
+    }`}
 >
     <div class="absolute inset-[0] left-[25px] z-[-1] rounded-lg bg-gray-100" />
     <div

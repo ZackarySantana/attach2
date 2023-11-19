@@ -33,6 +33,11 @@ const config = {
     },
     plugins: [
         plugin(function ({ addUtilities, theme }) {
+            addUtilities({
+                ".scrollbar-adjust": {
+                    "margin-right": "calc(-1*(100vw - 100%))",
+                },
+            });
             themes.forEach((t) => {
                 addUtilities({
                     [`.${t} .text-attach-accent`]: {

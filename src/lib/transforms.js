@@ -91,3 +91,16 @@ export function transformApp(app) {
         icon: app.logo,
     };
 }
+
+/**
+ * @param {import('$lib/resume.js').Certificates} certificate
+ * @returns {DropdownItemProps}
+ */
+export function transformCertificate(certificate) {
+    return {
+        title: certificate.name,
+        subtitle: [certificate.issuer, formatDate(certificate.issue_date)],
+        description: certificate.description,
+        icon: certificate.logo,
+    };
+}

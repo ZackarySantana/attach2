@@ -5,6 +5,7 @@
     import DropdownItem from "$components/dropdown_item.svelte";
     import {
         transformApp,
+        transformCertificate,
         transformEducation,
         transformGame,
         transformProject,
@@ -34,6 +35,10 @@
         {
             title: "📱 Mobile Apps",
             data: data.apps.map(transformApp),
+        },
+        {
+            title: "📜 Certificates",
+            data: data.certificates.map(transformCertificate),
         },
     ];
 </script>
