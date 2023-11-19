@@ -52,6 +52,9 @@ async function processLogos(info) {
         ) {
             return;
         }
+        if (item.logo) {
+            return;
+        }
         promises.push(
             fetch(item.website)
                 .then((res) => res.text())
@@ -69,9 +72,23 @@ async function processLogos(info) {
                                 href = item.website + href;
                             }
                             item.logo = href;
-                            return;
+                            return fetch(href);
                         }
                     }
+                })
+                .then((href) => {
+                    if (href === undefined || href.status !== 200) {
+                        item.logo =
+                            new URL(item.website ?? "").origin + "/favicon.ico";
+                        return fetch(item.logo);
+                    }
+                })
+                .then((href) => {
+                    if (href !== undefined && href.status !== 200) {
+                        item.logo = item.website + "/favicon.ico";
+                    }
+                })
+                .catch(() => {
                     item.logo = item.website + "/favicon.ico";
                 }),
         );
