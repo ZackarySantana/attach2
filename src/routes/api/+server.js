@@ -1,7 +1,32 @@
 import { json } from "@sveltejs/kit";
 
+/**
+ * @param {import('$lib/resume').Resume} info
+ */
+async function processLogos(info) {
+    /**
+     * @param {object} item
+     * @param {string=} item.logo
+     * @param {string=} item.website
+     * @param {boolean=} item.get_logo_from_website
+     */
+    function processLogo(item) {
+        if (item.website && item.get_logo_from_website) {
+            const url = item.website + "/favicon.ico";
+            item.logo = url;
+        }
+    }
+
+    info.work_experience.forEach(processLogo);
+    info.projects.forEach(processLogo);
+    info.education.forEach(processLogo);
+    info.games.forEach(processLogo);
+    info.apps.forEach(processLogo);
+    info.certificates.forEach(processLogo);
+}
+
 /** @type {import('./$types').RequestHandler} */
-export function GET() {
+export async function GET() {
     /** @type {import('$lib/resume').Resume} */
     const info = {
         personal: {
@@ -84,5 +109,6 @@ export function GET() {
             },
         ],
     };
+    await processLogos(info);
     return json(info);
 }
