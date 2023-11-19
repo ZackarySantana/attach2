@@ -14,13 +14,12 @@
 >
     <div class="absolute inset-[0] left-[25px] z-[-1] rounded-lg bg-gray-100" />
     <div
-        class="flex h-[50px] w-[50px] min-w-[50px] items-center justify-center self-start rounded-lg bg-gradient-to-b from-[#e23a4d] to-[#e23a4d]
-        "
+        class="from-accent to-accent-2 flex h-[50px] w-[50px] min-w-[50px] items-center justify-center self-start rounded-lg bg-gradient-to-b"
     >
         <div class="p-2">
             <img
                 class="h-full w-full"
-                src="/icons/mongodb.svg"
+                src={icon}
                 alt="Icon"
             />
         </div>
@@ -35,7 +34,7 @@
         {#if subtitle.length > 0}
             <div class="relative pl-3 text-sm leading-4 text-gray-800">
                 <div
-                    class="absolute left-[2px] top-[11%] h-[80%] w-[2px] rounded-sm bg-[#e23a4d]"
+                    class="bg-accent absolute left-[2px] top-[11%] h-[80%] w-[2px] rounded-sm"
                 />
                 {#each subtitle as i}
                     <p>{i}</p>

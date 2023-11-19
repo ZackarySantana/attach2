@@ -17,9 +17,10 @@ const config = {
                     "text-chip": "#ffffff",
                     bg: "#ffffff",
                     "bg-primary": "#f3f4f6",
-                    "bg-secondary": "#d04952",
-                    "bg-chip": "#d04952",
-                    accent: "#d04952",
+                    "bg-secondary": "#e23a4d",
+                    "bg-chip": "#e23a4d",
+                    accent: "#e23a4d",
+                    "accent-2": "#e23a4d",
                 },
             },
             height: {
@@ -65,8 +66,21 @@ const config = {
                     [`.${t} .bg-chip`]: {
                         backgroundColor: theme(`colors.${t}.bg-chip`),
                     },
+                    [`.${t} .bg-accent`]: {
+                        backgroundColor: theme(`colors.${t}.accent`),
+                    },
                     [`.${t} .fill-accent`]: {
                         fill: theme(`colors.${t}.accent`),
+                    },
+                    [`.${t} .from-accent`]: {
+                        "--tw-gradient-from": theme(`colors.${t}.accent`),
+                        "--tw-gradient-stops":
+                            "var(--tw-gradient-from), var(--tw-gradient-to)",
+                    },
+                    [`.${t} .to-accent-2`]: {
+                        "--tw-gradient-to": theme(`colors.${t}.accent-2`),
+                        "--tw-gradient-stops":
+                            "var(--tw-gradient-from), var(--tw-gradient-to)",
                     },
                 });
             });
