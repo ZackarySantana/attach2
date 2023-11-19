@@ -1,14 +1,23 @@
-import DropdownItem from "$components/dropdown_item.svelte";
 import { formatDate } from "./utils";
 
 /**
- * @typedef {{
- *    title: string;
- *   subtitle: string[];
- *  description?: string[];
- * icon?: string;
- * }} DropdownItemProps
+ * @typedef DropdownItemProps
+ * @type {object}
+ * @property {string} title - The title of the dropdown item.
+ * @property {string[]} subtitle - The subtitle of the dropdown item.
+ * @property {string[]=} description - The description of the dropdown item.
+ * @property {string=} icon - The icon of the dropdown item.
  */
+
+/**
+ *
+ * @param {string} start_date
+ * @param {string=} end_date
+ * @returns {string}
+ */
+function subTitleFromDates(start_date, end_date) {
+    return `${formatDate(start_date)} - ${formatDate(end_date)}`;
+}
 
 /**
  * @param {import('$lib/resume.js').WorkExperience} experience
@@ -19,9 +28,7 @@ export function transformWorkExperience(experience) {
         title: experience.position,
         subtitle: [
             experience.company,
-            `${formatDate(experience.start_date)} - ${formatDate(
-                experience.end_date,
-            )}`,
+            subTitleFromDates(experience.start_date, experience.end_date),
             experience.location ?? "",
         ],
         description: experience.description,
@@ -49,7 +56,11 @@ export function transformProject(project) {
 export function transformEducation(education) {
     return {
         title: education.school,
-        subtitle: [],
+        subtitle: [
+            education.degree + " in " + education.major,
+            subTitleFromDates(education.start_date, education.end_date),
+            education.location ?? "",
+        ],
         description: ["Courses: " + education.courses?.join(", ")],
         icon: education.logo,
     };

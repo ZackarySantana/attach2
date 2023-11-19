@@ -13,6 +13,29 @@
 
     /** @type {import('./$types').PageData} */
     export let data;
+
+    const transforms = [
+        {
+            title: "💼 Work Experience",
+            data: data.work_experience.map(transformWorkExperience),
+        },
+        {
+            title: "🕸️ Projects",
+            data: data.projects.map(transformProject),
+        },
+        {
+            title: "🧠 Education",
+            data: data.education.map(transformEducation),
+        },
+        {
+            title: "🎮 Games",
+            data: data.games.map(transformGame),
+        },
+        {
+            title: "📱 Mobile Apps",
+            data: data.apps.map(transformApp),
+        },
+    ];
 </script>
 
 <svelte:head>
@@ -25,59 +48,17 @@
 
 <Personal resume={data} />
 
-<Dropdown title="💼 Work Experience">
-    {#each data.work_experience.map(transformWorkExperience) as i}
-        <DropdownItem
-            title={i.title}
-            subtitle={i.subtitle}
-            description={i.description}
-            icon={i.icon}
-        />
-    {/each}
-</Dropdown>
-
-<Dropdown title="🕸️ Projects">
-    {#each data.projects.map(transformProject) as i}
-        <DropdownItem
-            title={i.title}
-            subtitle={i.subtitle}
-            description={i.description}
-            icon={i.icon}
-        />
-    {/each}
-</Dropdown>
-
-<Dropdown title="🧠 Education">
-    {#each data.education.map(transformEducation) as i}
-        <DropdownItem
-            title={i.title}
-            subtitle={i.subtitle}
-            description={i.description}
-            icon={i.icon}
-        />
-    {/each}
-</Dropdown>
-
-<Dropdown title="🎮 Games">
-    {#each data.games.map(transformGame) as i}
-        <DropdownItem
-            title={i.title}
-            subtitle={i.subtitle}
-            description={i.description}
-            icon={i.icon}
-        />
-    {/each}
-</Dropdown>
-
-<Dropdown title="📱 Mobile Apps">
-    {#each data.apps.map(transformApp) as i}
-        <DropdownItem
-            title={i.title}
-            subtitle={i.subtitle}
-            description={i.description}
-            icon={i.icon}
-        />
-    {/each}
-</Dropdown>
+{#each transforms as { title, data }}
+    <Dropdown {title}>
+        {#each data as i}
+            <DropdownItem
+                title={i.title}
+                subtitle={i.subtitle}
+                description={i.description}
+                icon={i.icon}
+            />
+        {/each}
+    </Dropdown>
+{/each}
 
 <Contact resume={data} />
