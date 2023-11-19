@@ -19,6 +19,9 @@ const config = {
 					'bg-chip': '#d04952',
 					accent: '#d04952'
 				}
+			},
+			height: {
+				item: '60px'
 			}
 		}
 	},

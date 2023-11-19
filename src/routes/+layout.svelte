@@ -7,12 +7,12 @@
 	inject({ mode: dev ? 'development' : 'production' });
 </script>
 
-<div class="light-fire max-w-[500px] mx-auto">
-	<header class="flex justify-center items-center py-4">
+<div class="mx-auto max-w-[500px] light-fire">
+	<header class="flex items-center justify-center py-4">
 		<a
 			href="https://github.com/ZackarySantana/Attach2"
 			target="_blank"
-			class="text-attach-accent font-mono text-sm"
+			class="font-mono text-sm text-attach-accent"
 		>
 			|attach|
 		</a>
@@ -22,7 +22,7 @@
 		<slot />
 	</main>
 
-	<footer class="px-5 sm:px-10 flex justify-center items-center py-8">
+	<footer class="flex items-center justify-center px-5 py-8 sm:px-10">
 		<a href="https://github.com/ZackarySantana/Attach2" target="_blank">
 			<p class="text-sm">
 				Putting the power of connecting in to the hands of the user.
@@ -30,7 +30,7 @@
 				Theme: <code>Light Fire</code>
 			</p>
 			<h3>
-				Click here to make your own <span class="text-attach-accent font-mono">|attach|</span>
+				Click here to make your own <span class="font-mono text-attach-accent">|attach|</span>
 			</h3>
 		</a>
 	</footer>
