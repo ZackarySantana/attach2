@@ -1,11 +1,15 @@
 <script>
     import Personal from "./personal.svelte";
-    import WorkExperience from "./work_experience.svelte";
-    import Projects from "./projects.svelte";
-    import Education from "./education.svelte";
-    import Games from "./games.svelte";
     import Contact from "./contact.svelte";
-    import Apps from "./apps.svelte";
+    import Dropdown from "$components/dropdown.svelte";
+    import DropdownItem from "$components/dropdown_item.svelte";
+    import {
+        transformApp,
+        transformEducation,
+        transformGame,
+        transformProject,
+        transformWorkExperience,
+    } from "$lib/transforms";
 
     /** @type {import('./$types').PageData} */
     export let data;
@@ -20,9 +24,60 @@
 </svelte:head>
 
 <Personal resume={data} />
-<WorkExperience resume={data} />
-<Projects resume={data} />
-<Education resume={data} />
-<Games resume={data} />
-<Apps resume={data} />
+
+<Dropdown title="💼 Work Experience">
+    {#each data.work_experience.map(transformWorkExperience) as i}
+        <DropdownItem
+            title={i.title}
+            subtitle={i.subtitle}
+            description={i.description}
+            icon={i.icon}
+        />
+    {/each}
+</Dropdown>
+
+<Dropdown title="🕸️ Projects">
+    {#each data.projects.map(transformProject) as i}
+        <DropdownItem
+            title={i.title}
+            subtitle={i.subtitle}
+            description={i.description}
+            icon={i.icon}
+        />
+    {/each}
+</Dropdown>
+
+<Dropdown title="🧠 Education">
+    {#each data.education.map(transformEducation) as i}
+        <DropdownItem
+            title={i.title}
+            subtitle={i.subtitle}
+            description={i.description}
+            icon={i.icon}
+        />
+    {/each}
+</Dropdown>
+
+<Dropdown title="🎮 Games">
+    {#each data.games.map(transformGame) as i}
+        <DropdownItem
+            title={i.title}
+            subtitle={i.subtitle}
+            description={i.description}
+            icon={i.icon}
+        />
+    {/each}
+</Dropdown>
+
+<Dropdown title="📱 Mobile Apps">
+    {#each data.apps.map(transformApp) as i}
+        <DropdownItem
+            title={i.title}
+            subtitle={i.subtitle}
+            description={i.description}
+            icon={i.icon}
+        />
+    {/each}
+</Dropdown>
+
 <Contact resume={data} />

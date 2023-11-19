@@ -7,6 +7,7 @@
  * @property {Project[]} projects - Your projects.
  * @property {Education[]} education - Your education.
  * @property {Games[]} games - Your games.
+ * @property {Apps[]} apps - Your apps.
  * @property {Certificates[]} certificates - Your certificates.
  */
 
