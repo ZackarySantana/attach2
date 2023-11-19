@@ -1,6 +1,4 @@
 <script>
-    import welcome from "$lib/images/svelte-welcome.webp";
-    import welcome_fallback from "$lib/images/svelte-welcome.png";
     import Personal from "./personal.svelte";
     import WorkExperience from "./work_experience.svelte";
     import Projects from "./projects.svelte";
