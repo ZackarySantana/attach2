@@ -25,6 +25,9 @@ const config = {
             height: {
                 item: "60px",
             },
+            width: {
+                item: "calc(100%-25px)",
+            },
         },
     },
     plugins: [

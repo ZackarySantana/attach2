@@ -8,6 +8,7 @@
     let height = 1000;
 
     $: arrow_rotation = open ? "rotate-[-90deg]" : "rotate-[90deg]";
+    $: spacing = open ? "mb-3" : "";
 
     function toggle() {
         open = !open;
@@ -15,7 +16,7 @@
 </script>
 
 {#if $$slots.default}
-    <section class="my-3">
+    <section class="flex flex-col gap-3">
         <button
             class="flex h-item w-full cursor-pointer select-none items-center rounded-lg px-4 leading-5 bg-primary"
             on:click={toggle}
@@ -26,7 +27,7 @@
             />
         </button>
         <div
-            class="overflow-hidden transition-all duration-300"
+            class={`overflow-hidden transition-all duration-300 ${spacing}`}
             style={`max-height: ${open ? height : 0}px;`}
         >
             <div

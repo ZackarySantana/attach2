@@ -26,8 +26,8 @@
  * @type {object}
  * @property {string} company - The company you worked for.
  * @property {string} position - Your position at the company.
- * @property {Date} start_date - The date you started working at the company.
- * @property {Date=} end_date - The date you stopped working at the company.
+ * @property {string} start_date - The date you started working at the company.
+ * @property {string=} end_date - The date you stopped working at the company.
  * @property {string[]} description - A description of your work.
  * @property {string[]=} technologies - The technologies you used.
  * @property {string=} website - The company's website.
@@ -84,8 +84,8 @@
  * @property {string} school - The school you attended.
  * @property {string} major - Your major.
  * @property {string} degree - The degree you received.
- * @property {Date} start_date - The date you started attending the school.
- * @property {Date=} end_date - The date you stopped attending the school.
+ * @property {string} start_date - The date you started attending the school.
+ * @property {string=} end_date - The date you stopped attending the school.
  * @property {string[]=} courses - The courses you took.
  * @property {string=} website - The school's website.
  * @property {string=} location - The school's location.
@@ -99,7 +99,7 @@
  * @type {object}
  * @property {string} name - The name of the certificate.
  * @property {string} issuer - The issuer of the certificate.
- * @property {Date} issue_date - The date the certificate was issued.
+ * @property {string} issue_date - The date the certificate was issued.
  * @property {string[]=} description - A description of the certificate.
  * @property {string=} website - The certificate's website.
  * @property {string=} logo - The certificate's logo.
