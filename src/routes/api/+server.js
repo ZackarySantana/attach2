@@ -1,9 +1,38 @@
 import { json } from "@sveltejs/kit";
 
+const iconTypes = [
+    'rel="apple-touch-icon"',
+    'rel="msapplication-TileImage"',
+    'rel="icon"',
+];
+
 /**
  * @param {import('$lib/resume').Resume} info
+ * @returns {Promise<any>}
  */
 async function processLogos(info) {
+    /**
+     *
+     * @param {string} text
+     * @param {string} toFind
+     * @returns {string=}
+     */
+    function getHref(text, toFind) {
+        const appleIcon = text.indexOf(toFind);
+        if (appleIcon !== -1) {
+            const href = text
+                .substring(appleIcon, text.indexOf('">', appleIcon))
+                .match(/href="([^"]*)/);
+            if (href) {
+                return href[1];
+            }
+        }
+        return undefined;
+    }
+    /**
+     * @type {Promise<void>[]}
+     */
+    const promises = [];
     /**
      * @param {object} item
      * @param {string=} item.logo
@@ -11,10 +40,27 @@ async function processLogos(info) {
      * @param {boolean=} item.get_logo_from_website
      */
     function processLogo(item) {
-        if (item.website && item.get_logo_from_website) {
-            const url = item.website + "/favicon.ico";
-            item.logo = url;
+        if (
+            !item.website ||
+            (item.get_logo_from_website !== undefined &&
+                item.get_logo_from_website === false)
+        ) {
+            return;
         }
+        promises.push(
+            fetch(item.website)
+                .then((res) => res.text())
+                .then((site) => {
+                    for (const type of iconTypes) {
+                        const href = getHref(site, type);
+                        if (href) {
+                            item.logo = item.website + href;
+                            return;
+                        }
+                    }
+                    item.logo = item.website + "/favicon.ico";
+                }),
+        );
     }
 
     info.work_experience.forEach(processLogo);
@@ -23,6 +69,8 @@ async function processLogos(info) {
     info.games.forEach(processLogo);
     info.apps.forEach(processLogo);
     info.certificates.forEach(processLogo);
+
+    return Promise.all(promises);
 }
 
 /** @type {import('./$types').RequestHandler} */
@@ -49,9 +97,8 @@ export async function GET() {
                 start_date: "2021-01-01",
                 end_date: "2022-01-01",
                 description: ["Company Description"],
-                website: "https://google.com",
+                website: "https://www.mongodb.com",
                 location: "New York, NY",
-                get_logo_from_website: true,
             },
         ],
         education: [
@@ -63,7 +110,6 @@ export async function GET() {
                 end_date: "2022-01-01",
                 website: "https://google.com",
                 location: "New York, NY",
-                get_logo_from_website: true,
             },
         ],
         certificates: [
@@ -73,7 +119,6 @@ export async function GET() {
                 issue_date: "2021-05-05",
                 description: ["Cert desc"],
                 website: "https://google.com",
-                get_logo_from_website: true,
             },
         ],
         projects: [
@@ -84,7 +129,6 @@ export async function GET() {
                 technologies: ["Go", "TypeScript"],
                 website: "https://google.com",
                 github: "https://github.com/zackarysantana/howsit",
-                get_logo_from_website: true,
             },
         ],
         games: [
@@ -94,7 +138,6 @@ export async function GET() {
                 technologies: ["Godot", "Unity"],
                 website: "https://google.com",
                 github: "https://github.com/zackarysantana/rpg",
-                get_logo_from_website: true,
             },
         ],
         apps: [
@@ -105,7 +148,6 @@ export async function GET() {
                 technologies: ["React", "Svelte"],
                 website: "https://google.com",
                 github: "https://github.com/zackarysantana/rpg",
-                get_logo_from_website: true,
             },
         ],
     };
