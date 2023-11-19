@@ -1,30 +1,25 @@
 <script>
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import Personal from './personal.svelte';
+	import WorkExperience from './work_experience.svelte';
+	import Projects from './projects.svelte';
+	import Education from './education.svelte';
+	import Games from './games.svelte';
+	import Contact from './contact.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>{data.personal.first_name}'s |attach|</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2 class="text-xl">
-		try editing <strong>src/routes/+page.svelte</strong>
-		{data.personal.first_name}
-	</h2>
-</section>
+<Personal resume={data} />
+<WorkExperience resume={data} />
+<Projects resume={data} />
+<Education resume={data} />
+<Games resume={data} />
+<Contact resume={data} />
