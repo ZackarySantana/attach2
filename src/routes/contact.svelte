@@ -7,4 +7,5 @@
 
 <Dropdown title="📧 Contact Me">
     <p>Contact me</p>
+    <p>|VIEW_COUNT|</p>
 </Dropdown>
