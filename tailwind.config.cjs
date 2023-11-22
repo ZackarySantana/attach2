@@ -74,6 +74,18 @@ const config = {
                     [`.${t} .bg-accent`]: {
                         backgroundColor: theme(`colors.${t}.accent`),
                     },
+                    [`.${t} .border-primary`]: {
+                        borderColor: theme(`colors.${t}.bg-primary`),
+                    },
+                    [`.${t} .border-secondary`]: {
+                        borderColor: theme(`colors.${t}.bg-secondary`),
+                    },
+                    [`.${t} .border-chip`]: {
+                        borderColor: theme(`colors.${t}.bg-chip`),
+                    },
+                    [`.${t} .border-accent`]: {
+                        borderColor: theme(`colors.${t}.accent`),
+                    },
                     [`.${t} .fill-accent`]: {
                         fill: theme(`colors.${t}.accent`),
                     },

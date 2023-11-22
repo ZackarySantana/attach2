@@ -14,15 +14,15 @@
 </script>
 
 <div
-    class={`w-item relative flex h-fit items-center rounded-lg pr-8 leading-5 ${
+    class={`relative flex h-fit w-item items-center rounded-lg pr-8 leading-5 ${
         small ? "py-2" : "py-5"
     }`}
 >
     <div class="absolute inset-[0] left-[25px] z-[-1] rounded-lg bg-gray-100" />
-    <div
-        class="from-accent to-accent-2 flex h-[50px] w-[50px] min-w-[50px] items-center justify-center self-start rounded-lg bg-gradient-to-b"
-    >
-        {#if icon !== undefined}
+    {#if icon !== undefined && icon !== ""}
+        <div
+            class="flex h-[50px] w-[50px] min-w-[50px] items-center justify-center self-start rounded-lg bg-gradient-to-b from-accent to-accent-2"
+        >
             <div class="p-2">
                 <img
                     class="h-[32px] w-[32px]"
@@ -30,10 +30,15 @@
                     alt="Icon"
                 />
             </div>
-        {/if}
-    </div>
+        </div>
+    {/if}
+    {#if icon === undefined || icon === ""}
+        <div class="h-[50px] w-[50px]" />
+    {/if}
     <div class="w-full overflow-hidden pl-4 leading-5">
-        <h3 class="whitespace-nowrap font-bold">{title}</h3>
+        {#if title !== ""}
+            <h3 class="whitespace-nowrap font-bold">{title}</h3>
+        {/if}
         {#if subtitle.length === 1}
             <p
                 class="whitespace-nowrap text-sm font-medium text-gray-800 fade-line"
@@ -44,7 +49,7 @@
         {#if multilineSubtitle}
             <div class="relative pl-3 text-sm leading-4 text-gray-800">
                 <div
-                    class="bg-accent absolute left-[2px] top-[11%] h-[80%] w-[2px] rounded-sm"
+                    class="absolute left-[2px] top-[11%] h-[80%] w-[2px] rounded-sm bg-accent"
                 />
                 {#each subtitle as i}
                     <p>{i}</p>

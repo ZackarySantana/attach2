@@ -1,5 +1,5 @@
 import { KV_REST_API_TOKEN, KV_REST_API_URL } from "$env/static/private";
-import { kv, createClient } from "@vercel/kv";
+import { createClient } from "@vercel/kv";
 
 const client = createClient({
     url: KV_REST_API_URL,

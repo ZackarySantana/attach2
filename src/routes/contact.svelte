@@ -1,8 +1,9 @@
 <script>
     import Dropdown from "$components/dropdown.svelte";
+    import Spinner from "$components/spinner.svelte";
     import { onMount } from "svelte";
 
-    let views = 0;
+    let views = -1;
 
     onMount(() => {
         fetch("/api/view")
@@ -18,4 +19,11 @@
     <p>Contact me</p>
 </Dropdown>
 
-<p>{views}</p>
+<div
+    class="flex w-[30%] justify-center gap-1 rounded-lg px-4 py-3 font-bold bg-primary"
+>
+    <Spinner loading={views === -1}>
+        <p>{views}</p>
+    </Spinner>
+    <p>Views</p>
+</div>

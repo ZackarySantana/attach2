@@ -71,19 +71,31 @@ export function transformProject(project) {
 
 /**
  * @param {import('$lib/resume.js').Education} education
- * @returns {DropdownItemProps}
+ * @returns {DropdownItemProps[]}
  */
 export function transformEducation(education) {
-    return {
-        title: education.school,
-        subtitle: [
-            education.degree + " in " + education.major,
-            subTitleFromDates(education.start_date, education.end_date),
-            education.location ?? "",
-        ],
-        description: ["Courses: " + education.courses?.join(", ")],
-        icon: education.logo,
-    };
+    return [
+        {
+            title: education.school,
+            subtitle: [
+                education.degree + " in " + education.major,
+                subTitleFromDates(education.start_date, education.end_date),
+                education.location ?? "",
+            ],
+            description: ["Courses: " + education.courses?.join(", ")],
+            icon: education.logo,
+        },
+        ...(education.additional ?? []).map((a) => ({
+            title: "",
+            subtitle: [
+                a.degree ? `${a.degree} in ${a.major}` : "",
+                a.start_date ? subTitleFromDates(a.start_date, a.end_date) : "",
+                a.location ?? "",
+            ],
+            description: ["Courses: " + a.courses?.join(", ")],
+            icon: a.no_logo ? "" : a.logo ? a.logo : education.logo,
+        })),
+    ];
 }
 
 /**

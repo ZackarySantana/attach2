@@ -275,25 +275,23 @@ export function getResume() {
                     "Operating Systems",
                     "Software Engineering",
                 ],
-                website: "https://www.fiu.edu",
-                location: "Miami, FL",
-            },
-            {
-                school: "Florida International University",
-                major: "Mathematical Science",
-                degree: "Minor",
-                start_date: "2020-07-01",
-                end_date: "2023-08-01",
-                courses: [
-                    "Calculus I",
-                    "Calculus II",
-                    "Calculus III",
-                    "Differential Equations",
-                    "Linear Algebra",
-                    "Physics I",
-                    "Physics II",
-                    "Modern Physics",
-                    "Intermediate Physics Lab",
+                additional: [
+                    {
+                        degree: "Minor",
+                        major: "Mathematical Science",
+                        courses: [
+                            "Calculus I",
+                            "Calculus II",
+                            "Calculus III",
+                            "Differential Equations",
+                            "Linear Algebra",
+                            "Physics I",
+                            "Physics II",
+                            "Modern Physics",
+                            "Intermediate Physics Lab",
+                        ],
+                        no_logo: true,
+                    },
                 ],
                 website: "https://www.fiu.edu",
                 location: "Miami, FL",
@@ -519,10 +517,26 @@ export function getResume() {
  * @property {string} start_date - The date you started attending the school.
  * @property {string=} end_date - The date you stopped attending the school.
  * @property {string[]=} courses - The courses you took.
+ * @property {AdditionalEducation[]=} additional - Any additional education like minors.
  * @property {string=} website - The school's website.
  * @property {string=} location - The school's location.
  * @property {string=} logo - The school's logo.
  * @property {boolean} [get_logo_from_website=true] - Attempt to get the school's logo from their website if a logo is not given.
+ * @property {boolean} [no_logo=false] - Do not include the logo.
+ */
+
+/**
+ * @typedef AdditionalEducation
+ * @type {object}
+ * @property {string=} name - The name of the additional education. This is only required if the degree and major are not given.
+ * @property {string=} degree - The degree you received. This is only required if the name is not given.
+ * @property {string=} major - The major of the additional education. This is only required if the name is not given.
+ * @property {string[]=} courses - The courses you took.
+ * @property {string=} start_date - The date you started the additional education.
+ * @property {string=} end_date - The date you ended the additional education.
+ * @property {string=} location - The location you attended the additional education.
+ * @property {string=} logo - The logo of the additional education.
+ * @property {boolean} [get_logo_from_website=true] - Attempt to get the additional education's logo from their website if a logo is not given.
  * @property {boolean} [no_logo=false] - Do not include the logo.
  */
 

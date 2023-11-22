@@ -18,27 +18,27 @@
     const transforms = [
         {
             title: "💼 Work Experience",
-            data: data.work_experience.map(transformWorkExperience),
+            data: data.work_experience.flatMap(transformWorkExperience),
         },
         {
             title: "🕸️ Projects",
-            data: data.projects.map(transformProject),
+            data: data.projects.flatMap(transformProject),
         },
         {
             title: "🧠 Education",
-            data: data.education.map(transformEducation),
+            data: data.education.flatMap(transformEducation),
         },
         {
             title: "🎮 Games",
-            data: data.games.map(transformGame),
+            data: data.games.flatMap(transformGame),
         },
         {
             title: "📱 Mobile Apps",
-            data: data.apps.map(transformApp),
+            data: data.apps.flatMap(transformApp),
         },
         {
             title: "📜 Certificates",
-            data: data.certificates.map(transformCertificate),
+            data: data.certificates.flatMap(transformCertificate),
         },
     ];
 </script>
