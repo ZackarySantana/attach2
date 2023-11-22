@@ -7,6 +7,8 @@
     export let description;
     /** @type {string=} */
     export let icon;
+    /** @type {string[]=} */
+    export let badges;
 
     $: filteredDescription = (description ?? []).filter((i) => i !== "");
     $: multilineSubtitle = subtitle.length > 1;
@@ -58,8 +60,17 @@
         {/if}
         {#if filteredDescription.length > 0}
             <ul class={`list-disc text-xs ${!multilineSubtitle ? "mt-4" : ""}`}>
-                {#each description ?? [] as i}
+                {#each filteredDescription ?? [] as i}
                     <li class="mt-1">{i}</li>
+                {/each}
+            </ul>
+        {/if}
+        {#if badges && badges.length > 0}
+            <ul class="mt-2.5 flex flex-wrap gap-1 text-xs">
+                {#each badges as badge}
+                    <li class="rounded-full px-2.5 py-1 text-chip bg-chip">
+                        <p>{badge}</p>
+                    </li>
                 {/each}
             </ul>
         {/if}

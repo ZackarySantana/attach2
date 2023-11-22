@@ -7,6 +7,7 @@ import { formatDate } from "./utils";
  * @property {string} title - The title of the dropdown item.
  * @property {string[]} subtitle - The subtitle of the dropdown item.
  * @property {string[]=} description - The description of the dropdown item.
+ * @property {string[]=} badges - Related badges of the dropdown item.
  * @property {string=} icon - The icon of the dropdown item.
  */
 
@@ -53,6 +54,7 @@ export function transformWorkExperience(experience) {
         ],
         description: experience.description,
         icon: experience.logo,
+        badges: experience.technologies,
     };
 }
 
@@ -66,6 +68,7 @@ export function transformProject(project) {
         subtitle: [project.website ?? ""],
         description: project.description,
         icon: project.logo,
+        badges: project.technologies,
     };
 }
 
@@ -108,6 +111,7 @@ export function transformGame(game) {
         subtitle: [game.website ?? ""],
         description: game.description,
         icon: game.logo,
+        badges: game.technologies,
     };
 }
 
@@ -121,6 +125,7 @@ export function transformApp(app) {
         subtitle: [app.website ?? ""],
         description: app.description,
         icon: app.logo,
+        badges: app.technologies,
     };
 }
 

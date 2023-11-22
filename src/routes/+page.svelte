@@ -61,6 +61,7 @@
                 subtitle={i.subtitle}
                 description={i.description}
                 icon={i.icon}
+                badges={i.badges}
             />
         {/each}
     </Dropdown>
