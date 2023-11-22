@@ -13,6 +13,7 @@ const config = {
                 "light-fire": {
                     "attach-accent": "#446f9a",
                     "text-primary": "#000000",
+                    "text-primary-subtitle": "#56595E", //2D3036
                     "text-secondary": "#ffffff",
                     "text-chip": "#ffffff",
                     bg: "#ffffff",
@@ -45,6 +46,9 @@ const config = {
                     },
                     [`.${t} .text-primary`]: {
                         color: theme(`colors.${t}.text-primary`),
+                    },
+                    [`.${t} .text-primary-subtitle`]: {
+                        color: theme(`colors.${t}.text-primary-subtitle`),
                     },
                     [`.${t} .text-secondary`]: {
                         color: theme(`colors.${t}.text-secondary`),

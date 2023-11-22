@@ -1,4 +1,9 @@
 <script>
+    import Badge from "./badge.svelte";
+    import Badges from "./badges.svelte";
+    import MultilineSubtitle from "./multiline_subtitle.svelte";
+    import SinglelineSubtitle from "./singleline_subtitle.svelte";
+
     /** @type {string} */
     export let title;
     /** @type {string[]} */
@@ -20,7 +25,7 @@
         small ? "py-2" : "py-5"
     }`}
 >
-    <div class="absolute inset-[0] left-[25px] z-[-1] rounded-lg bg-gray-100" />
+    <div class="absolute inset-[0] left-[25px] z-[-1] rounded-lg bg-primary" />
     {#if icon !== undefined && icon !== ""}
         <div
             class="flex h-[50px] w-[50px] min-w-[50px] items-center justify-center self-start rounded-lg bg-gradient-to-b from-accent to-accent-2"
@@ -42,21 +47,16 @@
             <h3 class="whitespace-nowrap font-bold">{title}</h3>
         {/if}
         {#if subtitle.length === 1}
-            <p
-                class="whitespace-nowrap text-sm font-medium text-gray-800 fade-line"
-            >
+            <SinglelineSubtitle fades={true}>
                 {subtitle}
-            </p>
+            </SinglelineSubtitle>
         {/if}
         {#if multilineSubtitle}
-            <div class="relative pl-3 text-sm leading-4 text-gray-800">
-                <div
-                    class="absolute left-[2px] top-[11%] h-[80%] w-[2px] rounded-sm bg-accent"
-                />
+            <MultilineSubtitle>
                 {#each subtitle as i}
                     <p>{i}</p>
                 {/each}
-            </div>
+            </MultilineSubtitle>
         {/if}
         {#if filteredDescription.length > 0}
             <ul class={`list-disc text-xs ${!multilineSubtitle ? "mt-4" : ""}`}>
@@ -66,13 +66,13 @@
             </ul>
         {/if}
         {#if badges && badges.length > 0}
-            <ul class="mt-2.5 flex flex-wrap gap-1 text-xs">
+            <Badges>
                 {#each badges as badge}
-                    <li class="rounded-full px-2.5 py-1 text-chip bg-chip">
+                    <Badge>
                         <p>{badge}</p>
-                    </li>
+                    </Badge>
                 {/each}
-            </ul>
+            </Badges>
         {/if}
     </div>
 </div>
