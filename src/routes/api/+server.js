@@ -41,10 +41,15 @@ async function processLogos(info) {
     /**
      * @param {object} item
      * @param {string=} item.logo
+     * @param {boolean=} item.no_logo
      * @param {string=} item.website
      * @param {boolean=} item.get_logo_from_website
      */
     function processLogo(item) {
+        if (item.no_logo) {
+            item.logo = undefined;
+            return;
+        }
         if (
             !item.website ||
             (item.get_logo_from_website !== undefined &&
