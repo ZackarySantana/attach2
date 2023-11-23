@@ -62,6 +62,7 @@
                 description={i.description}
                 icon={i.icon}
                 badges={i.badges}
+                website={i.website}
             />
         {/each}
     </Dropdown>

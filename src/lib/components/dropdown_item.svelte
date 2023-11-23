@@ -12,6 +12,8 @@
     export let description;
     /** @type {string=} */
     export let icon;
+    /** @type {string=} */
+    export let website;
     /** @type {string[]=} */
     export let badges;
 
@@ -30,13 +32,28 @@
         <div
             class="flex h-[50px] w-[50px] min-w-[50px] items-center justify-center self-start rounded-lg bg-gradient-to-b from-accent to-accent-2"
         >
-            <div class="p-2">
-                <img
-                    class="h-[32px] w-[32px]"
-                    src={icon}
-                    alt="Icon"
-                />
-            </div>
+            <!-- TODO Make link components better, maybe a wrapper component that picks the parent dynamically? -->
+            {#if website !== undefined && website !== ""}
+                <a
+                    href={website}
+                    target="_blank"
+                    class="p-2"
+                >
+                    <img
+                        class="h-[32px] w-[32px]"
+                        src={icon}
+                        alt="Icon"
+                    />
+                </a>
+            {:else}
+                <div class="p-2">
+                    <img
+                        class="h-[32px] w-[32px]"
+                        src={icon}
+                        alt="Icon"
+                    />
+                </div>
+            {/if}
         </div>
     {/if}
     {#if icon === undefined || icon === ""}
@@ -47,7 +64,10 @@
             <h3 class="whitespace-nowrap font-bold">{title}</h3>
         {/if}
         {#if subtitle.length === 1}
-            <SinglelineSubtitle fades={true}>
+            <SinglelineSubtitle
+                fades={true}
+                {website}
+            >
                 {subtitle}
             </SinglelineSubtitle>
         {/if}

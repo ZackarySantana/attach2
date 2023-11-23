@@ -9,6 +9,7 @@ import { formatDate } from "./utils";
  * @property {string[]=} description - The description of the dropdown item.
  * @property {string[]=} badges - Related badges of the dropdown item.
  * @property {string=} icon - The icon of the dropdown item.
+ * @property {string=} website - The website of the dropdown item.
  */
 
 /**
@@ -55,6 +56,7 @@ export function transformWorkExperience(experience) {
         description: experience.description,
         icon: experience.logo,
         badges: experience.technologies,
+        website: experience.website,
     };
 }
 
@@ -69,6 +71,7 @@ export function transformProject(project) {
         description: project.description,
         icon: project.logo,
         badges: project.technologies,
+        website: project.website,
     };
 }
 
@@ -87,6 +90,7 @@ export function transformEducation(education) {
             ],
             description: ["Courses: " + education.courses?.join(", ")],
             icon: education.logo,
+            website: education.website,
         },
         ...(education.additional ?? []).map((a) => ({
             title: "",
@@ -97,6 +101,7 @@ export function transformEducation(education) {
             ],
             description: ["Courses: " + a.courses?.join(", ")],
             icon: a.no_logo ? "" : a.logo ? a.logo : education.logo,
+            website: education.website,
         })),
     ];
 }
@@ -112,6 +117,7 @@ export function transformGame(game) {
         description: game.description,
         icon: game.logo,
         badges: game.technologies,
+        website: game.website,
     };
 }
 
@@ -126,6 +132,7 @@ export function transformApp(app) {
         description: app.description,
         icon: app.logo,
         badges: app.technologies,
+        website: app.website,
     };
 }
 
@@ -139,5 +146,6 @@ export function transformCertificate(certificate) {
         subtitle: [certificate.issuer, formatDate(certificate.issue_date)],
         description: certificate.description,
         icon: certificate.logo,
+        website: certificate.website,
     };
 }
