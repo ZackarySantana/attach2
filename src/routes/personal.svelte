@@ -26,6 +26,7 @@
             pngSrc={"/banner.png"}
             alt="Banner"
             class="block h-full w-full object-cover object-center"
+            loading="eager"
         />
     </div>
     <div
