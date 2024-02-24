@@ -1,16 +1,19 @@
-import { vitePreprocess } from "@sveltejs/kit/vite";
 import adapter from "@sveltejs/adapter-vercel";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
     kit: {
-        adapter: adapter(),
+        adapter: adapter({
+            runtime: "edge",
+        }),
+
+        paths: {
+            relative: true,
+        },
         alias: {
             "$components/*": "src/lib/components/*",
         },
     },
-
-    preprocess: [vitePreprocess({})],
 };
 
 export default config;
