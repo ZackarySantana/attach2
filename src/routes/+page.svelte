@@ -47,25 +47,27 @@
     <title>{data.personal.first_name}'s |attach|</title>
     <meta
         name="description"
-        content="Svelte demo app"
+        content={data.personal.first_name + "'s |attach|"}
     />
 </svelte:head>
 
 <Personal resume={data} />
 
 {#each transforms as { title, data }}
-    <Dropdown {title}>
-        {#each data as i}
-            <DropdownItem
-                title={i.title}
-                subtitle={i.subtitle}
-                description={i.description}
-                icon={i.icon}
-                badges={i.badges}
-                website={i.website}
-            />
-        {/each}
-    </Dropdown>
+    {#if data.length > 0}
+        <Dropdown {title}>
+            {#each data as i}
+                <DropdownItem
+                    title={i.title}
+                    subtitle={i.subtitle}
+                    description={i.description}
+                    icon={i.icon}
+                    badges={i.badges}
+                    website={i.website}
+                />
+            {/each}
+        </Dropdown>
+    {/if}
 {/each}
 
 <Contact resume={data} />
