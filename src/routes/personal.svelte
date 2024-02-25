@@ -25,7 +25,7 @@
         <Image
             pngSrc={"/banner.png"}
             alt="Banner"
-            class="block h-full w-full object-cover object-center"
+            class="block h-full w-full object-center"
             loading="eager"
         />
     </div>
