@@ -86,13 +86,9 @@
             </ul>
         {/if}
         {#if badges && badges.length > 0}
-            <Badges>
-                {#each badges as badge}
-                    <Badge>
-                        <p>{badge}</p>
-                    </Badge>
-                {/each}
-            </Badges>
+            <div class="relative mt-5 text-sm leading-4 text-primary-subtitle">
+                <p class="text-xs italic">{badges.join(", ")}</p>
+            </div>
         {/if}
     </div>
 </div>
